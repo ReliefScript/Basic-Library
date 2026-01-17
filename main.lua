@@ -306,7 +306,7 @@ function Library:Init(Title)
 			end)
 		end
 
-		function Tab:Slider(Min, Max, Default, Callback)
+		function Tab:Slider(Name, Min, Max, Default, Callback)
 			local SliderFrame = Instance.new("Frame")
 			SliderFrame.Parent = TabFrame
 			SliderFrame.BackgroundTransparency = 1
@@ -356,14 +356,14 @@ function Library:Init(Title)
 					local MouseX = math.clamp(Mouse.X - Bar.AbsolutePosition.X, 0, Bar.AbsoluteSize.X)
 					local Value = Min + (MouseX / Bar.AbsoluteSize.X) * (Max - Min)
 					Value = math.floor(Value * 100) / 100
-					Display.Text = Value
+					Display.Text = `{Name} > {Value}`
 					local RelativePos = (Value - Min) / (Max - Min)
 					Button.Position = UDim2.new(RelativePos, 0, 0.5, 0)
 					task.spawn(Callback, Value)
 				end
 			end)
 
-			Display.Text = Default
+			Display.Text = `{Name} > {Default}`
 			Button.Position = UDim2.new(Default / Max, 0, 0.5, 0)
 		end
 
