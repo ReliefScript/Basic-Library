@@ -15,6 +15,6 @@ Home:Dropdown({"Option1", "Option2", "Option3"}, function(Option)
 	print(Option)
 end)
 
-Home:Slider(1, 10, 5, function(Number)
+Home:Slider("Slider Test", 1, 10, 5, function(Number)
 	print(Number)
 end)
