@@ -375,3 +375,5 @@ function Library:Init(Title)
 
 	return Root
 end
+
+return Library
