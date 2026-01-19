@@ -79,9 +79,10 @@ local function Stroke(Inst)
 	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 end
 
-local function Square(Inst)
+local function Ratio(Inst, X)
 	local Ratio = Instance.new("UIAspectRatioConstraint")
 	Ratio.Parent = Inst
+	Ratio.AspectRatio = X or 1
 end
 
 -- Ui
@@ -92,12 +93,13 @@ Screen.DisplayOrder = 1e6
 
 local Frame = Instance.new("Frame")
 Frame.Parent = Screen
-Frame.Size = UDim2.new(0.225, 0, 0.275, 0)
+Frame.Size = UDim2.new(0.3375, 0, 0.4125, 0)
 Frame.BorderSizePixel = 0
 Frame.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
 Frame.Active = true
 Frame.Draggable = true
 Center(Frame)
+Ratio(Frame, 1.75)
 
 local TabHolder = Instance.new("ScrollingFrame")
 TabHolder.Parent = Frame
@@ -326,7 +328,7 @@ function Library:Init(Title)
 			Button.BorderSizePixel = 0
 			Button.BackgroundColor3 = Color3.new(1, 1, 1)
 			Button.Text = ""
-			Square(Button)
+			Ratio(Button)
 			Stroke(Button)
 			Center(Button)
 
@@ -373,5 +375,3 @@ function Library:Init(Title)
 
 	return Root
 end
-
-return Library
